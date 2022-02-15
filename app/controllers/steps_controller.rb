@@ -1,5 +1,6 @@
 class StepsController < ApplicationController
   before_action :set_step, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /steps or /steps.json
   def index
@@ -65,6 +66,6 @@ class StepsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def step_params
-      params.require(:step).permit(:name, :content, :rank, :goal_id)
+      params.require(:step).permit(:name, :content, :rank, :goal_id, :status)
     end
 end

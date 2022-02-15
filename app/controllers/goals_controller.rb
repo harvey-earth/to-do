@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_action :set_goal, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /goals or /goals.json
   def index
@@ -65,6 +66,6 @@ class GoalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def goal_params
-      params.require(:goal).permit(:name, :content, :user_id)
+      params.require(:goal).permit(:name, :content, :user_id, :status)
     end
 end
