@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_02_15_194356) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status"
+    t.index ["status"], name: "index_goals_on_status"
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_02_15_194356) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status"
     t.index ["goal_id"], name: "index_steps_on_goal_id"
+    t.index ["status"], name: "index_steps_on_status"
   end
 
   create_table "users", force: :cascade do |t|
