@@ -1,4 +1,4 @@
-<%= form_with(model: step) do |form| %>
+<%= form_with(model: [@goal, step]) do |form| %>
   <% if step.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(step.errors.count, "error") %> prohibited this step from being saved:</h2>
@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :rank %>
+    <%= form.number_field :rank %>
+  </div>
+
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
@@ -19,16 +24,6 @@
   <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rank %>
-    <%= form.number_field :rank %>
-  </div>
-
-  <div class="field">
-    <%= form.label :goal_id %>
-    <%= form.text_field :goal_id %>
   </div>
 
   <div class="actions">
